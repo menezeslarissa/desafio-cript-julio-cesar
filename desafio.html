@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <form action="">
+        <label>Mensagem</label>
+        <input id="msg" type="text">
+
+        <input type="button" value="Enviar" onclick="cript()">
+
+        <p id="resposta"></p>
+    </form>
+</body>
+
+<script>
+    const alfabeto = "abcdefghijklmnopqrstuvwxyz";
+
+    function cript() {
+        let mensagem = document.getElementById('msg').value;
+        let s = document.getElementById("resposta");
+        // s.innerHTML = mensagem;
+        mensagem.toLowerCase();
+        let result = "";
+        for (var i = 0; i < mensagem.length; i++) {
+            result = result + substituiLetra(mensagem.charAt(i).toLowerCase());
+        }
+        //let letra = mensagem.charAt(0);
+        //  let result =
+        s.innerHTML = result;
+        // console.log(String.fromCharCode(105, 100, 101, 97, 115, 93, 97, 110, 116, 116, 111, 98, 101, 117, 103, 108, 95, 106, 97, 115, 111, 110, 115, 97, 110, 116, 97, 109, 97, 114, 105, 97));
+    }
+
+    function trocar_letra(letra) {
+        if (letra == ".") {
+            return ".";
+        } else if (letra == " ") {
+            return " ";
+        } else if (letra.charCodeAt() - 5 == 93) {
+            return "w";
+        } else {
+            return String.fromCharCode(letra.charCodeAt(0) - 5);
+        }
+        // } else if (letra.charCodeAt() - 5 == 93) {
+        //     return "a";
+        // } else if (letra.charCodeAt() - 5 == 95) {
+        //     return "y";
+        // } else {
+        //     var res =
+        //         (letra.charCodeAt() - 5);
+        //     return String.fromCharCode(res);
+        // }
+
+    }
+
+    function nextLetter(s) {
+        if (s == ".") {
+            return ".";
+        } else {
+            return String.fromCharCode(((s.charCodeAt(0) - 5 - 65) % 25) + 65).toLowerCase();
+        }
+    }
+
+    function substituiLetra(letra) {
+        // //frase = frase.replace(/\s/g, ' '); // elimina os espaços
+        // const novaFrase = frase.split('').map(function(letra) {
+
+        //     // este trecho é apenas para mostrar os valores
+        switch (letra) {
+            case 'a':
+                return "v";
+            case 'b':
+                return "w";
+            case 'c':
+                return "x";
+            case 'd':
+                return "y";
+            case 'e':
+                return "z";
+            case " ":
+                return " ";
+            case ".":
+                return ".";
+            default:
+                return alfabeto.charAt(alfabeto.indexOf(letra) - 5);
+        }
+        // retorna a string com as posições das letras
+    }
+
+    // function nextLetter(s) {
+    /**
+     *  var res = letra.substring(0, letra.length - 1) +
+            String.fromCharCode(letra.charCodeAt(letra.length - 1) - 5);
+     */
+
+    //     if (s == "z") {
+    //         return "a";
+    //     } else if (s == "Z") {
+    //         return "A";
+    //     } else if (s == ".") {
+    //         return ".";
+    //     } else {
+    //         return String.fromCharCode(s.charCodeAt(0) + 1);
+    //     }
+    // }
+
+    //nijfx bfsy yt gj zlqd. ofxts xfsyf rfwnf
+</script>
+
+</html>
